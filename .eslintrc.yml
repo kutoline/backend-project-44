@@ -1,0 +1,13 @@
+---
+  env:
+    node: true
+
+  extends:
+    - 'airbnb-base'
+
+  plugins:
+    - eslint-plugin-import
+
+  rules:
+    no-console: off
+    import/extensions: off
