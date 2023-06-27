@@ -1,7 +1,12 @@
 #!/usr/bin/env node
-import greetingUser from '../src/cli.js';
-import parityCheck from '../src/parity-check.js';
+import playGame from '../src/index.js';
+import isEvenNum from '../src/games/brain-even.js';
 
-greetingUser();
-console.log('Answer "yes" if the number is even, otherwise answer "no".');
-parityCheck();
+const rules = 'Answer "yes" if the number is even, otherwise answer "no"';
+
+const getRoundData = () => {
+  const num = Math.floor(Math.random() * 101);
+  return [num, isEvenNum(num)];
+};
+
+playGame(getRoundData, rules);

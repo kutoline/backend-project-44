@@ -1,34 +1,32 @@
 #!/usr/bin/env node
-import readlineSync from 'readline-sync';
-import greetingUser from '../src/cli.js';
+import playGame from '../src/index.js';
+import { sum, product, difference } from '../src/games/brain-calc.js';
 
-greetingUser();
-console.log('Answer "yes" if the number is even, otherwise answer "no".');
 const operators = ['-', '*', '+'];
-let correctAnswersCounter = 0;
-const numberCorrectAnswersToWin = 3;
+const rules = 'What is the result of the expression?';
 
-while (correctAnswersCounter < numberCorrectAnswersToWin) {
+const getRoundData = () => {
   const operandFirst = Math.floor(Math.random() * 101);
   const operandTwo = Math.floor(Math.random() * 101);
-  const currentOperator = operators[Math.floor(Math.random() * operators.length)];
-  let currentResult = 0;
-  console.log(currentOperator);
-  if (currentOperator === '-') {
-    currentResult = operandFirst - operandTwo;
-  } else if (currentOperator === '+') {
-    currentResult = operandFirst + operandTwo;
-  } else if (currentOperator === '*') {
-    currentResult = operandFirst * operandTwo;
+  const operatorIndex = Math.floor(Math.random() * operators.length);
+
+  const operator = operators[operatorIndex];
+  const question = `${operandFirst} ${operator} ${operandTwo}`;
+  let result;
+
+  if (operator === '+') {
+    result = sum(operandFirst, operandTwo);
   }
 
-  const answer = readlineSync.question(`Question: ${operandFirst} ${currentOperator} ${operandTwo} `);
-  if (Number(answer) !== currentResult) {
-    console.log('\'yes\' is wrong answer ;(. Correct answer was \'no\'.\n'
-        + 'Let\'s try again, Bill!');
-    break;
+  if (operator === '*') {
+    result = product(operandFirst, operandTwo);
   }
 
-  console.log(`Your answer: ${answer}`);
-  correctAnswersCounter += 1;
-}
+  if (operator === '-') {
+    result = difference(operandFirst, operandTwo);
+  }
+
+  return [question, String(result)];
+};
+
+playGame(getRoundData, rules);
