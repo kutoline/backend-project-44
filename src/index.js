@@ -1,7 +1,7 @@
 import readlineSync from 'readline-sync';
 import { getName, greetingUser } from './utills/greeting-user.js';
 
-const playGame = (questions, rules) => {
+const playGame = (getRoundData, rules) => {
   const playerName = getName();
   greetingUser(playerName);
 
@@ -11,7 +11,7 @@ const playGame = (questions, rules) => {
   console.log(rules);
 
   while (correctAnswersCounter < numberCorrectAnswersToWin) {
-    const [question, result] = questions();
+    const [question, result] = getRoundData();
 
     const answer = readlineSync.question(
       `Question: ${question} \nYour answer: `,

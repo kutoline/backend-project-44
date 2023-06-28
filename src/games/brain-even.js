@@ -1,3 +1,3 @@
-const isEvenNum = (num) => (num % 2 === 0 ? 'yes' : 'no');
+const isEvenNum = (num) => num % 2 === 0;
 
 export default isEvenNum;

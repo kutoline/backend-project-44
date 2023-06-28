@@ -1,5 +1,9 @@
 import readlineSync from 'readline-sync';
-import { playGame } from './index.js';
+import { greetingUser } from './utills/greeting-user.js';
 
-const playerName = readlineSync.question('');
-greetingUser(playerName);
+const welcomeScript = () => {
+  const playerName = readlineSync.question('');
+  greetingUser(playerName);
+};
+
+export default welcomeScript;

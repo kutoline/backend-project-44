@@ -1,20 +1,21 @@
 #!/usr/bin/env node
+import { generateProgression, getProgressionWithHideNum } from '../src/games/brain-progression.js';
 import playGame from '../src/index.js';
-import {getHighestDivisor} from "../src/games/brain-gcd.js";
+import getRandomNum from '../src/utills/get-random-num.js';
 
 const rules = 'What number is missing in the progression?';
 
 const getRoundData = () => {
-  const firstNum = Math.floor(Math.random() * 101);
-  const twoNum = Math.floor(Math.random() * 101);
-  const question = `${firstNum} ${twoNum}`;
-  Math.floor(Math.random() * (max - min + 1)) + min
-  const divisorsFirstNumber = getAllDivisorsNumber(firstNum);
-  const divisorsTwoNumber = getAllDivisorsNumber(twoNum);
-  const commonDivisors = getCommonDivisors(divisorsFirstNumber, divisorsTwoNumber);
-  const highestDivisor = getHighestDivisor(commonDivisors);
+  const progressionLength = getRandomNum(5, 10);
+  const startNum = getRandomNum(0, 100);
+  const step = getRandomNum(0, 100);
 
-  return [question, highestDivisor];
+  const progression = generateProgression(startNum, step, progressionLength);
+  const replacementIndex = getRandomNum(0, progressionLength - 1);
+  const replacementValue = progression[replacementIndex];
+  const question = getProgressionWithHideNum(progression, replacementIndex).join(' ');
+
+  return [question, replacementValue];
 };
 
 playGame(getRoundData, rules);
