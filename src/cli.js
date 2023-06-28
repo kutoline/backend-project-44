@@ -1,8 +1,7 @@
-import readlineSync from 'readline-sync';
-import { greetingUser } from './utills/greeting-user.js';
+import { getName, greetingUser } from './utills/greeting-user.js';
 
 const welcomeScript = () => {
-  const playerName = readlineSync.question('');
+  const playerName = getName();
   greetingUser(playerName);
 };
 
