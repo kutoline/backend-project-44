@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 import playGame from '../src/index.js';
 import { getAllDivisorsNumber, getCommonDivisors, getHighestDivisor } from '../src/games/brain-gcd.js';
-import getRandomNum from "../src/utills/get-random-num.js";
+import getRandomNum from '../src/utills/get-random-num.js';
 
 const rules = 'Find the greatest common divisor of given numbers.';
 
