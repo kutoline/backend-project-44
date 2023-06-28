@@ -18,7 +18,7 @@ const playGame = (getRoundData, rules) => {
     );
 
     if (answer !== String(result)) {
-      console.log(`${answer} is wrong answer ;(. Correct answer was ${result}.\nLet's try again, ${playerName}`);
+      console.log(`'${answer}' is wrong answer ;(. Correct answer was '${result}'.\nLet's try again, ${playerName}!`);
       break;
     }
 
