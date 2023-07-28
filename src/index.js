@@ -5,12 +5,10 @@ const playGame = (getRoundData, rules) => {
   const playerName = getName();
   greetingUser(playerName);
 
-  let correctAnswersCounter = 0;
-  const numberCorrectAnswersToWin = 3;
+  const correctAnswersToWin = 3;
 
   console.log(rules);
-
-  while (correctAnswersCounter < numberCorrectAnswersToWin) {
+  for (let correctAnswers = 0; correctAnswers < correctAnswersToWin; correctAnswers += 1) {
     const [question, result] = getRoundData();
 
     const answer = readlineSync.question(
@@ -18,17 +16,15 @@ const playGame = (getRoundData, rules) => {
     );
 
     if (answer !== String(result)) {
-      console.log(`'${answer}' is wrong answer ;(. Correct answer was '${result}'.\nLet's try again, ${playerName}!`);
-      break;
+      console.log(`'${answer}' is wrong answer ;(. Correct answer was '${result}'.`);
+      console.log(`Let's try again, ${playerName}!`);
+      return;
     }
 
     console.log('Correct!');
-    correctAnswersCounter += 1;
   }
 
-  if (correctAnswersCounter === numberCorrectAnswersToWin) {
-    console.log(`Congratulations, ${playerName}!`);
-  }
+  console.log(`Congratulations, ${playerName}!`);
 };
 
 export default playGame;
