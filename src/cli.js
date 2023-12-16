@@ -1,8 +1,9 @@
-import { getName, greetingUser } from './utills/greeting-user.js';
+import readlineSync from 'readline-sync';
 
 const welcomeScript = () => {
-  const playerName = getName();
-  greetingUser(playerName);
+  const name = readlineSync.question('May I have your name? ');
+  console.log(`Hello, ${name}`);
+  console.log('Welcome to the Brain Games!');
 };
 
 export default welcomeScript;
