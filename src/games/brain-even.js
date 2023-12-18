@@ -1,6 +1,7 @@
-import playGame from '../../index.js';
-import isEvenNum from './func.js';
-import getRandomNum from '../../utills/get-random-num.js';
+import playGame from '../index.js';
+import getRandomNum from '../utills/get-random-num.js';
+
+const isEvenNum = (num) => num % 2 === 0;
 
 const rules = 'Answer "yes" if the number is even, otherwise answer "no"';
 

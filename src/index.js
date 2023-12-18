@@ -6,16 +6,18 @@ const playGame = (getRoundData, rules) => {
   const playerName = readlineSync.question('May I have your name? ');
   console.log(`Hello, ${playerName}`);
   console.log('Welcome to the Brain Games!');
-
   console.log(rules);
+
   for (let correctAnswers = 0; correctAnswers < correctAnswersToWin; correctAnswers += 1) {
     const [question, result] = getRoundData();
 
+    console.log(`Question: ${question}`);
+
     const answer = readlineSync.question(
-      `Question: ${question} \nYour answer: `,
+      'nYour answer: ',
     );
 
-    if (answer !== String(result)) {
+    if (answer !== result) {
       console.log(`'${answer}' is wrong answer ;(.`);
       console.log(`Let's try again, ${playerName}!`);
       return;
