@@ -4,10 +4,9 @@ import getRandomNum from '../utills/get-random-num.js';
 const getProgressionWithHideNum = (progression, replacementIndex) => [...progression.slice(0, replacementIndex), '..', ...progression.slice(replacementIndex + 1)];
 
 const generateProgression = (startNum, step, progressionLength) => {
-
   const result = [];
 
-  for (let i = 1; i < progressionLength; i += 1) {
+  for (let i = 1; i <= progressionLength; i += 1) {
     const current = startNum + (step * i);
     result.push(current);
   }
