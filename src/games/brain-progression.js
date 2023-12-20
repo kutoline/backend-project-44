@@ -1,6 +1,8 @@
 import playGame from '../index.js';
 import getRandomNum from '../utills/get-random-num.js';
 
+const rules = 'What number is missing in the progression?';
+
 const getProgressionWithHideNum = (progression, replacementIndex) => [...progression.slice(0, replacementIndex), '..', ...progression.slice(replacementIndex + 1)];
 
 const generateProgression = (startNum, step, progressionLength) => {
@@ -13,8 +15,6 @@ const generateProgression = (startNum, step, progressionLength) => {
 
   return result;
 };
-
-const rules = 'What number is missing in the progression?';
 
 const getRoundData = () => {
   const progressionLength = getRandomNum(5, 10);
