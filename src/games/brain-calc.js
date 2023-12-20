@@ -1,6 +1,9 @@
 import getRandomNum from '../utills/get-random-num.js';
 import playGame from '../index.js';
 
+const operators = ['-', '*', '+'];
+const rules = 'What is the result of the expression?';
+
 const sum = (operandOne, operandTwo) => operandOne + operandTwo;
 
 const product = (operandOne, operandTwo) => operandOne * operandTwo;
@@ -16,9 +19,6 @@ const calculateResult = (operandFirst, operandTwo, operator) => {
 
   return operations[operator](operandFirst, operandTwo);
 };
-
-const operators = ['-', '*', '+'];
-const rules = 'What is the result of the expression?';
 
 const getRoundData = () => {
   const operandFirst = getRandomNum(0, 100);
